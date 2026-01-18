@@ -29,7 +29,7 @@ if st.button('Predict Churn'):
         'IsActiveMember': is_active_member,
         'EstimatedSalary': estimated_salary
     }
-    response = requests.post('http://localhost:8000/predict', json=data)
+    response = requests.post('https://customer-churn-deploy-3vje.onrender.com/predict', json=data)
     if response.status_code == 200:
         result = response.json()
         st.success(f"Churn Probability: {result['churn_probability']:.2f}")
